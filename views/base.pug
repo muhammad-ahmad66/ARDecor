@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    block head
+      meta(charset='UTF-8')
+      meta(name='description' content='Male_Fashion Template')
+      meta(name='keywords' content='Male_Fashion, unica, creative, html')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')
+      meta(http-equiv='X-UA-Compatible' content='ie=edge')
+      title AEDecor | #{title}
+      // Google Font
+      link(href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap' rel='stylesheet')
+      // Css Styles
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+      //- Model viewer API
+      script(type='module' src='https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js')
+
+
+      if (page === 'login' || page === 'signup')
+        link(rel="stylesheet", href="/css/login.css")
+
+      else if(page ==='uploadProductForm')
+        link(rel="stylesheet", href="/css/uploadProductForm.css")
+      
+      else 
+        link(rel='stylesheet' href='/css/bootstrap.min.css' type='text/css')
+        link(rel='stylesheet' href='/css/font-awesome.min.css' type='text/css')
+        link(rel='stylesheet' href='/css/elegant-icons.css' type='text/css')
+        link(rel='stylesheet' href='/css/magnific-popup.css' type='text/css')
+        link(rel='stylesheet' href='/css/nice-select.css' type='text/css')
+        link(rel='stylesheet' href='/css/owl.carousel.min.css' type='text/css')
+        link(rel='stylesheet' href='/css/slicknav.min.css' type='text/css')
+        link(rel='stylesheet' href='/css/style.css' type='text/css')
+        link(rel='stylesheet' href='/css/products.css')
+
+
+      //- CUSTOM CSS styles
+    //- link(rel="shortcut icon" href="/img/findReunite Icon Black.png" type="image/x-icon")
+
+
+  body
+    if (page !== 'login' && page !== 'signup' && page !== 'uploadProductForm')
+      // HEADER
+      //- For CSS classes we're using BEM Notation.
+      include _header
+
+    // MAIN CONTENT
+    block content
+      h1 This is a placeholder heading
+
+    if (page !== 'login' && page !== 'signup' && page !== 'uploadProductForm')
+      // FOOTER
+      include _footer
+
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js")
+    //- script(src="/js/login.js")
+    // Js Plugins
+    script(src='/js/jquery-3.3.1.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/jquery.nice-select.min.js')
+    script(src='/js/jquery.nicescroll.min.js')
+    script(src='/js/jquery.magnific-popup.min.js')
+    script(src='/js/jquery.countdown.min.js')
+    script(src='/js/jquery.slicknav.js')
+    script(src='/js/mixitup.min.js')
+    script(src='/js/owl.carousel.min.js')
+    script(src='/js/main.js')
+
+    script(src='https://js.stripe.com/v3/')
+    script(src="/js/bundle.js")

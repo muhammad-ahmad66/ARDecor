@@ -1,0 +1,25 @@
+extends base
+
+block content
+  main.main-login
+    .container-login-form
+      h1 Please Login
+      form.form-login
+        .form-control
+          input(type='email', required='', id='email')
+          label Email
+          //
+            <label>
+            <span style="transition-delay: 0ms">E</span>
+            <span style="transition-delay: 50ms">m</span>
+            <span style="transition-delay: 100ms">a</span>
+            <span style="transition-delay: 150ms">i</span>
+            <span style="transition-delay: 200ms">l</span>
+            </label>
+        .form-control
+          input(type='password', required='', id='password')
+          label Password
+        button.btn Login
+        p.text
+          | Don&apos;t have an account? 
+          a(href='/signup') Register

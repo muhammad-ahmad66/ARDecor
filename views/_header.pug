@@ -1,0 +1,96 @@
+.offcanvas-menu-overlay
+.offcanvas-menu-wrapper
+  .offcanvas__option
+    .offcanvas__links
+      if user
+        a(href='') Logout
+      else
+        a(href='/login') Sign in
+      a(href='#') FAQs
+    .offcanvas__top__hover
+      span
+        a(href='/signup') Sign up
+
+  .offcanvas__nav__option
+    //- a.search-switch(href='#')
+    //-   img(src='/img/icon/search.png' alt='')
+    //- a(href='#')
+    //-   img(src='/img/icon/heart.png' alt='')
+    a(href='#')
+      img(src='/img/icon/cart.png' alt='')
+      span 0
+    //- .price $0.00
+  #mobile-menu-wrap
+  .offcanvas__text
+    p Free shipping, 30-day return or refund guarantee.
+// Offcanvas Menu End
+// Header Section Begin
+header.header
+  .header__top
+    .container
+      .row
+        .col-lg-6.col-md-7
+          .header__top__left
+            p Free shipping, 30-day return or refund guarantee.
+        .col-lg-6.col-md-5
+          .header__top__right
+            .header__top__links
+              if user 
+                a(href='/me')
+                  i.fa-solid.fa-user
+                a(href='/me')= user.name
+                p#logout Logout
+                if user.role == 'admin'
+                  a(href='/upload-new-product') Add New Product  
+              else
+                a(href='/login') Sign in
+                a(href='/signup') Sign up
+            .header__top__hover
+              span
+
+  .container
+    .row
+      .col-lg-3.col-md-3
+        .header__logo
+          a(href='/')
+            //- img(src='/img/logo.png' alt='')
+            h2.header__logo-text
+              span.logo-text--primary AR
+              span.logo-text--secondary Decorize
+      .col-lg-6.col-md-6
+        nav.header__menu.mobile-menu
+          ul
+            li.active
+              a(href='/') Home
+            //- li
+            //-   a(href='/shop.html') Shop
+            li
+              a(href='#') Pages
+            li 
+              a(href='#') About Us
+              //- ul.dropdown
+              //-   li
+              //-     a(href='/about.html') About Us
+              //-   li
+              //-     a(href='/shop-details.html') Shop Details
+              //-   li
+              //-     a(href='/shopping-cart.html') Shopping Cart
+              //-   li
+              //-     a(href='/checkout.html') Check Out
+              //-   li
+              //-     a(href='/blog-details.html') Blog Details
+            li
+              a(href='/products') Products
+            li
+              a(href='/contact') Contacts
+      .col-lg-3.col-md-3
+        .header__nav__option
+          if user
+            //- a(href='#')
+            //-   img(src='/img/icon/heart.png' alt='')
+            a(href='/users/cart')
+              img(src='/img/icon/cart.png' alt='')
+              span 0
+            //- .price $0.00
+    .canvas__open
+      i.fa.fa-bars

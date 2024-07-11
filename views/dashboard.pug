@@ -1,0 +1,178 @@
+extends base 
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active': ''}`)
+    a(href=`${link}`, data-section=`${text.toLowerCase().replace(/\s+/g, '-')}`)
+      //- svg
+      //-   use(xlink:href=`img/icons.svg#icon-${icon}`)
+      //- | #{text}
+      i(class=`fa-solid fa-${icon}`)
+      | #{text}
+
+block append head 
+  link(rel="stylesheet", href="/css/dashboard.css")
+
+block content
+  main.main
+    .user-view
+      nav.user-view__menu
+        ul.side-nav
+          +navItem('#', 'Profile Settings', 'id-card', true)
+          +navItem('#', 'Change Password', 'unlock')
+          +navItem('#', 'My Orders', 'basket-shopping')
+          //- +navItem('#', 'Log out', 'list-check')
+        - if(user.role === 'admin')
+          .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+              +navItem('#', 'Manage Users', 'users-cog')
+              +navItem('#', 'Manage Found Persons', 'user-check')
+              +navItem('#', 'Manage Missing Persons', 'search')
+              +navItem('#', 'Analytics Dashboard', 'cog')
+
+      .user-view__content
+        #profile-settings.user-view__form-container.active
+          h2.heading-secondary.ma-bt-md Your account settings
+          form.form.form-user-data
+            .form__group
+              label.form__label(for='name') Name
+              input#name.form__input(type='text', value=`${user.name}`, required name="name")
+            .form__group.ma-bt-md
+              label.form__label(for='email') Email address
+              input#email.form__input(type='email', value=`${user.email}`, required name="email")
+            .form__group.form__photo-upload
+              //- img.form__user-photo(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
+              //- input.form__upload(type="file", accept="image/*", id="photo", name="photo")
+              //- label(for="photo") Choose new photo
+            .form__group.right
+              button.btn.btn--small.btn--green.btn-save-settings Save settings
+          .line &nbsp;
+         
+        #change-password.user-view__form-container
+          h2.heading-secondary.ma-bt-md Password change
+          form.form.form-user-password
+            .form__group
+              label.form__label(for='password-current') Current password
+              input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group
+              label.form__label(for='password') New password
+              input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group.ma-bt-lg
+              label.form__label(for='password-confirm') Confirm password
+              input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group.right
+              button.btn.btn--small.btn--green.btn--save-password Save password
+
+
+        .reported-form-container#update-form-container
+          form.reported-form.update-person-form(action="#", method="post")
+            .reported-form__group
+              label.reported-form__label(for="person-name") Full Name:
+              input.reported-form__input(type="text", id="person-name", name="name", placeholder="Enter Person's name")
+            .reported-form__group
+              label.reported-form__label Gender:
+              select.reported-form__input(id="person-gender", name="gender")
+                option(value="male") Male
+                option(value="female") Female
+                option(value="non-binary") non-binary
+            .reported-form__group
+              label.reported-form__label(for="person-approxAge") Approximate Age:
+              input.reported-form__input(type="number", id="person-approxAge", name="approxAge", placeholder="Enter approximate age")
+            .reported-form__group
+              label.reported-form__label(for="person-UniqueIdentifier") Unique Identifier:
+              input.reported-form__input(type="text", id="person-UniqueIdentifier", name="UniqueIdentifier", placeholder="Enter any unique identifier")
+            .reported-form__group.full-width
+              label.reported-form__label(for="person-clothingDescription") Clothing Description:
+              textarea.reported-form__input(type="text", id="person-clothingDescription", name="clothingDescription", placeholder="Enter him/her clothing description", rows='3')
+            .reported-form__group
+              label.reported-form__label(for="person-HairColor") Hair Color:
+              input.reported-form__input(type="text", id="person-HairColor", name="HairColor", placeholder="Enter hair color")
+            .reported-form__group
+              //- img.form__user-photo(src=`img/users/default.jpg`, alt=` Photo`)
+              //- input.form__upload(type="file", accept="image/*", id="photo", name="photo")
+              //- label(for="photo") Choose a photo
+            .reported-form__group
+              label.reported-form__label Country:
+              input.reported-form__input(type="text", id="person-country", name="country", placeholder="Enter a country name")
+            .reported-form__group
+              label.reported-form__label(for="person-city") City:
+              input.reported-form__input(type="text", id="person-city", name="city", placeholder="Enter a city name")
+            //- .reported-form__group
+            //-   label.reported-form__label(for="lastSeenDate") Last Seen Date:
+            //-   input.reported-form__input(type="date", id="lastSeenDate", name="lastSeenDate")
+            .reported-form__group.full-width
+              label.reported-form__label(for="person-additionalDetails") Additional Details:
+              textarea.reported-form__input(id="person-additionalDetails", name="additionalDetails", placeholder="Enter any additional details. like physical, mental or medical conditions etc...", rows='6')
+            .reported-form__group
+              button.btn.btn--green(type="submit") Submit
+
+
+        #my-orders.user-view__form-container.order-view__container
+          h2.heading-secondary.ma-bt-md My Orders
+          //-  user.missingReportedPersons
+          if user.orders && user.orders.length > 0
+            .persons-container
+              each order in user.orders 
+                .person-card
+                  //- h3.person-card__name Order ID: #{order._id}
+                  p.person-card__details Order Date: #{new Date(order.order_date).toDateString()}
+                  p.person-card__details Total Price: $#{order.total_price}
+                  h4.person-card__title Products:
+                  each product in order.products
+                    .product-card
+                      model-viewer#modelViewer.product__item__pic(
+                    src=`/img/products/${product.product_id.image}`
+                    alt='A 3D model of a table'
+                    auto-rotate
+                    camera-controls
+                    ar
+                    ar-modes="scene-viewer quick-look"
+                    environment-image='img/product/product-2.jpg'
+                    )
+                      h3.product-card__name #{product.product_id.name}
+                      //- p.product-card__description #{product.product_id.description}
+                      p.product-card__quantity Quantity: #{product.quantity}
+                      p.product-card__price Price: $#{product.product_id.price}
+                  .person-card__btn-box 
+                    //- Here you can add any buttons or links you need for order actions (e.g., view details, update, delete)
+          else
+            p No orders found.
+               
+          
+        //- #other-activities.user-view__form-container
+        //-   h2.heading-secondary.ma-bt-md Other Activities
+        //-   p This is the Filhal kly ni section. Content for Filhal kly ni goes here.
+
+        // Admin sections
+        //- ! For owner it's not working.
+        if user.role === 'owner' || user.role === 'admin' || user.role === 'Owner' || user.role === 'OWNER'
+
+          #manage-users.user-view__form-container
+            h2.heading-secondary.ma-bt-md Manage Users
+            //- p This is the Manage Users section. Here you can manage users.
+            br
+            a.custom-btn(href='/all-users')
+              i.ri-gallery-view
+              | &nbsp; &nbsp; Get all Registered Users
+
+
+          #manage-found-persons.user-view__form-container
+            h2.heading-secondary.ma-bt-md Manage Found Persons
+            p This is the Manage Persons section. Here you can manage persons.
+
+          #manage-missing-persons.user-view__form-container
+            h2.heading-secondary.ma-bt-md Manage Missing Persons
+            p This is the Manage Reviews section. Here you can manage reviews.
+
+          #analytics-dashboard.user-view__form-container
+            h2.heading-secondary.ma-bt-md Statistics
+            .button-container
+              a.custom-btn#user-registrations-by-year-btn(href="/user-registrations-by-year")
+                i.ri-list-check 
+                | &nbsp; &nbsp; User Registration Count
+              a#btn-missing-report.custom-btn(href='/missing-person-reports')
+                i.ri-bar-chart-line
+                | &nbsp; &nbsp; Missing Persons Location Report
+              a#btn-found-report.custom-btn(href='/found-person-reports')
+                i.ri-bar-chart-line
+                | &nbsp; &nbsp; Found Persons Location Report

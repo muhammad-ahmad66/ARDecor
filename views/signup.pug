@@ -1,0 +1,20 @@
+extends base
+
+block content
+  main.main-login
+    .container-login-form
+      h1 Please Sign up
+      form.form-signup
+        .form-control
+          input(type='text', required='', id="name")
+          label Name
+        .form-control
+          input(type='email,' required='', id="email")
+          label Email
+        .form-control
+          input(type='password', required='', id="password")
+          label Password
+        .form-control
+          input(type='password', required='', id="password-confirm")
+          label Password Confirm
+        button.btn Sign up

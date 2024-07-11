@@ -1,0 +1,36 @@
+extends base 
+
+block content
+  .map
+    iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13361.850889435444!2d73.7450184!3d33.149477!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391fec085ec688ef%3A0xd988766d3ccdd31c!2sMirpur%20University%20of%20Science%20and%20Technology%20(MUST)!5e0!3m2!1sen!2s!4v1716133015043!5m2!1sen!2s' width='600' height='450' style='border: 0' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
+
+  section.contact.spad
+    .container
+      .row
+        .col-lg-6.col-md-6
+          .contact__text
+            .section-title
+              span Information
+              h2 Contact Us
+              p
+                | As you might expect of a company that began as a high-end
+                | interiors contractor, we pay strict attention.
+            ul
+              li
+                h4 Pakistan
+                p
+                  | 195 E Parker Square Dr, Parker, CO 801 
+                  br
+                  | +43
+                  |                     982-314-0958
+        .col-lg-6.col-md-6
+          .contact__form
+            form(action='#')
+              .row
+                .col-lg-6
+                  input(type='text' placeholder='Name')
+                .col-lg-6
+                  input(type='text' placeholder='Email')
+                .col-lg-12
+                  textarea(placeholder='Message')
+                  button.site-btn(type='submit') Send Message
