@@ -1,49 +1,67 @@
 body {
   background-color: #f7f7f7;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
+  min-height: 100vh;
 }
 
 .container {
   background: white;
   padding: 2em;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  margin: 1em;
 }
 
 h1 {
   color: #e63334;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .form-group {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+  position: relative;
 }
 
 label {
   display: block;
   margin-bottom: 0.5em;
   color: #333;
+  font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"],
+input[type='text'],
+input[type='number'],
+input[type='file'],
 textarea,
 select {
   width: 100%;
-  padding: 0.5em;
+  padding: 0.75em;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1em;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+input[type='text']:focus,
+input[type='number']:focus,
+input[type='file']:focus,
+textarea:focus,
+select:focus {
+  border-color: #e63334;
+  box-shadow: 0 0 5px rgba(230, 51, 52, 0.3);
+  outline: none;
 }
 
 button {
@@ -54,11 +72,78 @@ button {
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: 1.1em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
 button:hover {
   background-color: #d32f2f;
+  transform: scale(1.02);
+}
+
+button:active {
+  background-color: #c12727;
+  transform: scale(1);
+}
+
+input[type='file'] {
+  padding: 0.5em;
+  border: none;
+  background-color: #f7f7f7;
+}
+
+input[type='file']::file-selector-button {
+  background-color: #e63334;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type='file']::file-selector-button:hover {
+  background-color: #d32f2f;
+}
+
+input[type='file']::file-selector-button:active {
+  background-color: #c12727;
+}
+
+select {
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4uY2xzLTEge2ZpbGw6I0FBQUFBQTt9LmNscy0yIHtmaWxsOm5vbmU7fTwvc3R5bGU+CiAgPC9kZWZzPgogIDx0aXRsZT5hcnJvdyBkb3dubjwvdGl0bGU+CiAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTMuNSAyTDEwLjUgNUw3LjUgMiIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgOCw4KSIvPjwvc3ZnPgo=');
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 1em;
+  padding-right: 2em;
+}
+
+/* ul {
+  list-style-type: none;
+  background-color: #c12727;
+  padding-left: 0;
+} */
+
+option,
+li {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1em;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 1em;
+  }
 }

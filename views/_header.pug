@@ -14,15 +14,15 @@
   .offcanvas__nav__option
     //- a.search-switch(href='#')
     //-   img(src='/img/icon/search.png' alt='')
-    //- a(href='#')
-    //-   img(src='/img/icon/heart.png' alt='')
-    a(href='#')
-      img(src='/img/icon/cart.png' alt='')
-      span 0
+    a(href='/me')
+      i.fa-solid.fa-user.icon-user
+    a(href='/users/cart')
+      i.fa-solid.fa-cart-shopping.icon-cart
+      //- span 0
     //- .price $0.00
   #mobile-menu-wrap
   .offcanvas__text
-    p Free shipping, 30-day return or refund guarantee.
+    //- p Free shipping, 30-day return or refund guarantee.
 // Offcanvas Menu End
 // Header Section Begin
 header.header
@@ -31,7 +31,7 @@ header.header
       .row
         .col-lg-6.col-md-7
           .header__top__left
-            p Free shipping, 30-day return or refund guarantee.
+            //- p Free shipping, 30-day return or refund guarantee.
         .col-lg-6.col-md-5
           .header__top__right
             .header__top__links
@@ -86,11 +86,11 @@ header.header
       .col-lg-3.col-md-3
         .header__nav__option
           if user
-            //- a(href='#')
-            //-   img(src='/img/icon/heart.png' alt='')
+            a(href='/me')
+              i.fa-solid.fa-user.icon-user
             a(href='/users/cart')
-              img(src='/img/icon/cart.png' alt='')
-              span 0
+              i.fa-solid.fa-cart-shopping.icon-cart
+              span.cart-number= `${user.cart.length}`
             //- .price $0.00
     .canvas__open
       i.fa.fa-bars
