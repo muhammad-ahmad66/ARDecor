@@ -6,6 +6,8 @@ import { addToCart } from './cart';
 import { updateCartItem } from './cart';
 import { removeCartItem } from './cart';
 import { purchaseProduct } from './stripe';
+import { showAlert } from '/alerts';
+import axios from 'axios';
 
 const loginForm = document.querySelector('.form-login');
 const signupForm = document.querySelector('.form-signup');
@@ -236,3 +238,21 @@ if (userPasswordForm)
     document.getElementById('password').value = '';
     document.getElementById('password-confirm').value = '';
   });
+
+// ! Delete Product
+
+import { deleteProduct } from '/deleteProduct';
+
+const deleteProductBtn = document.querySelectorAll('#delete-product-btn');
+
+if (deleteProductBtn) {
+  deleteProductBtn.forEach((button) =>
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const productId = this.getAttribute('data-product-id');
+
+      console.log(productId);
+      deleteProduct(productId);
+    }),
+  );
+}

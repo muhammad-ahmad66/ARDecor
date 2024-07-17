@@ -91,3 +91,13 @@ exports.getContact = (req, res, next) => {
     page: 'contact',
   });
 };
+
+exports.getAllProducts = async (req, res, next) => {
+  const products = await Product.find();
+
+  res.status(200).render('all-products', {
+    title: 'All Products',
+    page: 'allProducts',
+    products,
+  });
+};

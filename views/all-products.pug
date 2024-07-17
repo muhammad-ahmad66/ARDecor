@@ -1,0 +1,34 @@
+extends base
+
+block append head  
+  link(rel="stylesheet", href="/css/all-products.css")
+
+block content 
+  main.main#users-section
+    h2.heading-secondary.ma-bt-md All Products
+    //-  user.missingReportedPersons
+    if products.length > 0
+      .users-container
+        each product in products
+          .user-card
+            //- img.user-card__photo(src=`/img/users/${user.photo}`, alt=`${user.name}'s Photo`)
+            model-viewer#model-viewer(src=`/img/products/${product.image}` ar='' ar-modes='scene-viewer quick-look' camera-controls='' touch-action='pan-y' alt='A 3D model of a chair' shadow-intensity='2' auto-rotate='' disable-pan='')
+            h3.user-card__name #{product.name}
+            p.user-card__location= `From: ${product.description}`
+            //- p.user-card__location #{product.price}
+            .user-card__btn-box 
+              a.user-card__btn(id="update-product-btn" data-user-id=`${product._id}` href='#')
+                i.fa-solid.fa-user-pen  
+                | Update Product
+               
+              a.user-card__btn(id="delete-product-btn" data-product-id=`${product._id}` href=`#`)
+                i.fa-solid.fa-trash  
+                | Delete
+              //- a.user-card__btn-detail(href=`/api/v1/users/${user._id}`) Details
+    else 
+      .users-container__no-users
+        p.users-container__no-users-text
+          | You have no found persons yet!
+        p.users-container__no-users-text  
+          | Please add a new Person here 
+          a.users-container__no-users-link(href="http://127.0.0.1:800/report-found-user", class="users-container__link") Add New Person

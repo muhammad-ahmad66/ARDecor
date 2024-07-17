@@ -5,6 +5,13 @@ const ordersController = require('../controllers/ordersController');
 
 const router = express.Router();
 
+router.get(
+  '/all-products',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAllProducts,
+);
+
 router.get('/upload-new-product', viewsController.getUploadNewProduct);
 router.get(
   '/',
