@@ -70,8 +70,8 @@ exports.getAccount = async (req, res, next) => {
   ]);
 
   const doc = await query;
-  console.log('Document full: ', doc);
-  console.log('Products: ', doc.orders[0].products);
+  // console.log('Document full: ', doc);
+  // console.log('Products: ', doc.orders[0].products);
 
   if (!doc) {
     return next(new AppError('No document found with that ID', 404));

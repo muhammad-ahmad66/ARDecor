@@ -3,49 +3,55 @@ footer.footer
     .row
       .col-lg-3.col-md-6.col-sm-6
         .footer__about
-          //- .footer__logo
-          //-   a(href='#')
-          //-     img(src='/img/footer-logo.png' alt='')
+          .header__logo
+            a(href='/')
+              //- img(src='/img/logo.png' alt='')
+              h2.header__logo-text
+                span.logo-text--primary AR
+                span.logo-text--secondary.color-white Decor
           p
             | The customer is at the heart of our unique business model, which
             | includes design.
           a(href='#')
             img(src='/img/payment.png' alt='')
-      .col-lg-2.offset-lg-1.col-md-3.col-sm-6
+      .col-lg-2.offset-lg-1.col-md-3.col-sm-6.col-end
         .footer__widget
-          h6 Shopping
+          h6 Quick Links
           ul
             li
-              a(href='#') Clothing Store
+              a(href='/products')  Products
             li
-              a(href='#') Trending Shoes
+              a(href='/me') Profile Settings
             li
-              a(href='#') Accessories
+              a(href='/cart') Cart
             li
-              a(href='#') Sale
+              a(href='/cart') Update Cart
       .col-lg-2.col-md-3.col-sm-6
         .footer__widget
-          h6 Shopping
+          h6   &nbsp;
+          br
+          br
+          br
           ul
             li
-              a(href='#') Contact Us
+              a(href='/contact') Contact Us
             li
-              a(href='#') Payment Methods
+              a(href='/about') About Us
             li
-              a(href='#') Delivary
+              a(href='#') Privacy Policy
             li
-              a(href='#') Return &amp; Exchanges
-      .col-lg-3.offset-lg-1.col-md-6.col-sm-6
-        //- .footer__widget
-          h6 NewLetter
-          .footer__newslatter
-            p
-              | Be the first to know about new arrivals, look books, sales &amp;
-              | promos!
-            form(action='#')
-              input(type='text' placeholder='Your email')
-              button(type='submit')
-                span.icon_mail_alt
+              a(href='#') Terms &amp; Conditions
+      //- .col-lg-3.offset-lg-1.col-md-6.col-sm-6
+      //-   .footer__widget
+      //-     h6 NewLetter
+      //-     .footer__newslatter
+      //-       p
+      //-         | Be the first to know about new arrivals, look books, sales &amp;
+      //-         | promos!
+      //-       form(action='#')
+      //-         input(type='text' placeholder='Your email')
+      //-         button(type='submit')
+      //-           span.icon_mail_alt
     .row
       .col-lg-12.text-center
         .footer__copyright__text

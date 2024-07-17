@@ -1,7 +1,7 @@
 extends base 
 
 block content 
-  section.hero
+  //- section.hero
     .hero__slider.owl-carousel
       .hero__items.set-bg(data-setbg='/img/hero/hero-bg.jpg')
         .container
@@ -47,6 +47,21 @@ block content
                 //-     i.fa.fa-pinterest
                 //-   a(href='#')
                 //-     i.fa.fa-instagram
+
+  .wrapper 
+    section.section-hero
+      .section-hero__container-left
+        h1 [ AR-Decorize ]
+        h2 Luxury Decor with Augmented Reality
+        p
+          | Experience premium furniture and decor, including tables, chairs, sofas, lighting, and paintings. 
+          | Transform your home with our AR features and exceptional quality.
+        a.primary-btn.btn-shop-now(href='/products')
+          | Shop now 
+          span.arrow_right
+      .section-hero__container-right
+        model-viewer#model-viewer(src='/img/chair_kitchen.glb' ar='' ar-modes='scene-viewer quick-look' camera-controls='' touch-action='pan-y' alt='A 3D model of a chair' shadow-intensity='2' auto-rotate='' disable-pan='' style='width: 400px; height: 400px')
+        #error.hide AR is not supported on this device
 
   section.banner.spad
     .container

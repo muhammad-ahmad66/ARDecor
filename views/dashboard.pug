@@ -26,8 +26,8 @@ block content
             h5.admin-nav__heading Admin
             ul.side-nav
               +navItem('#', 'Manage Users', 'users-cog')
-              +navItem('#', 'Manage Found Persons', 'user-check')
-              +navItem('#', 'Manage Missing Persons', 'search')
+              +navItem('#', 'Manage Products', 'user-check')
+              //- +navItem('#', 'Manage Missing Persons', 'search')
               +navItem('#', 'Analytics Dashboard', 'cog')
 
       .user-view__content
@@ -136,7 +136,8 @@ block content
                   .person-card__btn-box 
                     //- Here you can add any buttons or links you need for order actions (e.g., view details, update, delete)
           else
-            p No orders found.
+            p No orders found. Please choose product from here to buy! 
+              a(href="/products").btn.btn-text Products
                
           
         //- #other-activities.user-view__form-container
@@ -157,12 +158,12 @@ block content
 
 
           #manage-found-persons.user-view__form-container
-            h2.heading-secondary.ma-bt-md Manage Found Persons
-            p This is the Manage Persons section. Here you can manage persons.
+            h2.heading-secondary.ma-bt-md Manage Products
+            p This is the Manage Products section. Here you can manage products.
 
-          #manage-missing-persons.user-view__form-container
-            h2.heading-secondary.ma-bt-md Manage Missing Persons
-            p This is the Manage Reviews section. Here you can manage reviews.
+          //- #manage-missing-persons.user-view__form-container
+          //-   h2.heading-secondary.ma-bt-md Manage Missing Persons
+          //-   p This is the Manage Reviews section. Here you can manage reviews.
 
           #analytics-dashboard.user-view__form-container
             h2.heading-secondary.ma-bt-md Statistics
@@ -172,7 +173,7 @@ block content
                 | &nbsp; &nbsp; User Registration Count
               a#btn-missing-report.custom-btn(href='/missing-person-reports')
                 i.ri-bar-chart-line
-                | &nbsp; &nbsp; Missing Persons Location Report
-              a#btn-found-report.custom-btn(href='/found-person-reports')
-                i.ri-bar-chart-line
-                | &nbsp; &nbsp; Found Persons Location Report
+                | &nbsp; &nbsp; Order graph in a year
+              //- a#btn-found-report.custom-btn(href='/found-person-reports')
+              //-   i.ri-bar-chart-line
+              //-   | &nbsp; &nbsp; Found Persons Location Report
