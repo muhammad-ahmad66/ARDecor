@@ -256,3 +256,21 @@ if (deleteProductBtn) {
     }),
   );
 }
+
+// ! UPDATE PRODUCT DETAILS
+
+import { updateProduct } from '/updateProduct';
+
+const updateProductForm = document.querySelectorAll('#form-update-product');
+
+if (updateProductForm)
+  updateProductForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const category = document.getElementById('category').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const quantity = document.getElementById('quantity').value;
+    const productId = document.getElementById('#submit').dataset.productId;
+    console.log(productId);
+  });

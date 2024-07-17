@@ -17,9 +17,12 @@ block content
             p.user-card__location= `From: ${product.description}`
             //- p.user-card__location #{product.price}
             .user-card__btn-box 
-              a.user-card__btn(id="update-product-btn" data-user-id=`${product._id}` href='#')
-                i.fa-solid.fa-user-pen  
-                | Update Product
+              //- a.user-card__btn(id="update-product-btn" data-product-id=`${product._id}` href='/update-product')
+              //-   i.fa-solid.fa-user-pen  
+              //-   | Update Product
+              form(action='/update-product' method='POST')
+                input(type='hidden' name='productId' value=`${product._id}`)
+                button.user-card__btn(type='submit') Update Product
                
               a.user-card__btn(id="delete-product-btn" data-product-id=`${product._id}` href=`#`)
                 i.fa-solid.fa-trash  

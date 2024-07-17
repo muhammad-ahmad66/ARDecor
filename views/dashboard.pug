@@ -119,20 +119,21 @@ block content
                   p.person-card__details Total Price: $#{order.total_price}
                   h4.person-card__title Products:
                   each product in order.products
-                    .product-card
-                      model-viewer#modelViewer.product__item__pic(
-                    src=`/img/products/${product.product_id.image}`
-                    alt='A 3D model of a table'
-                    auto-rotate
-                    camera-controls
-                    ar
-                    ar-modes="scene-viewer quick-look"
-                    environment-image='img/product/product-2.jpg'
-                    )
-                      h3.product-card__name #{product.product_id.name}
-                      //- p.product-card__description #{product.product_id.description}
-                      p.product-card__quantity Quantity: #{product.quantity}
-                      p.product-card__price Price: $#{product.product_id.price}
+                    if product.product_id && product.product_id.image
+                      .product-card
+                        model-viewer#modelViewer.product__item__pic(
+                      src=`/img/products/${product.product_id.image}`
+                      alt='A 3D model of a table'
+                      auto-rotate
+                      camera-controls
+                      ar
+                      ar-modes="scene-viewer quick-look"
+                      environment-image='img/product/product-2.jpg'
+                      )
+                        h3.product-card__name #{product.product_id.name}
+                        //- p.product-card__description #{product.product_id.description}
+                        p.product-card__quantity Quantity: #{product.quantity}
+                        p.product-card__price Price: $#{product.product_id.price}
                   .person-card__btn-box 
                     //- Here you can add any buttons or links you need for order actions (e.g., view details, update, delete)
           else

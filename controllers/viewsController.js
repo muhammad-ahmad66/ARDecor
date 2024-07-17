@@ -101,3 +101,20 @@ exports.getAllProducts = async (req, res, next) => {
     products,
   });
 };
+
+exports.getProductUpdateForm = async function (req, res, next) {
+  try {
+    const productId = req.body.productId;
+    const product = await Product.findById(productId);
+    res.status(200).render('updateProductForm', {
+      title: 'Update Product',
+      page: 'updateProductForm',
+      product,
+    });
+    // Handle the update logic here
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};

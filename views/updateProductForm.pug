@@ -1,0 +1,35 @@
+extends base 
+
+block content
+  .container
+    h1 Product Form
+    form.form-upload-product#form-update-product
+      .form-group
+        label(for='name') Product Name
+        input#name(type='text' name='name'  value=`${product.name}`)
+
+      .form-group
+        label(for='category') Category
+        select#category(name='category'  value=`${product.category}`)
+          //- option(value='' disabled selected) Select Category
+          option(value='chairs') Chairs
+          option(value='tables') Tables
+          option(value='sofa') Sofa
+
+      .form-group
+        label(for='description') Description
+        textarea#description(name='description' rows='4'  value=`${product.description}`) 
+
+      .form-group
+        label(for='price') Price ($)
+        input#price(type='number' name='price' step='0.01' value=`${product.price}`)
+
+      .form-group
+        label(for='quantity') Quantity
+        input#quantity(type='number' name='quantity' value=`${product.quantity}`)
+
+      .form-group
+        label(for='image') 3D Model (.glb)
+        input#image(type='file' name='image' accept='.glb' )
+
+      button(type='submit' data-product-id=`${product._id}`)#submit Submit

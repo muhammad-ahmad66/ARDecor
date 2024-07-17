@@ -4,6 +4,12 @@ const authController = require('../controllers/authController');
 const ordersController = require('../controllers/ordersController');
 
 const router = express.Router();
+router.post(
+  '/update-product',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getProductUpdateForm,
+);
 
 router.get(
   '/all-products',
