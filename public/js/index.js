@@ -102,14 +102,18 @@ if (logoutBtn) {
 const arBtn = document.getElementById('ar-button');
 if (arBtn)
   arBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    let modelViewer = document.getElementById('modelViewer');
-    if (modelViewer.canActivateAR) {
-      modelViewer.activateAR();
-    } else {
-      alert(
-        'AR is not supported on this device or browser! Please try with another device.',
-      );
+    try {
+      e.preventDefault();
+      let modelViewer = document.getElementById('modelViewer');
+      if (modelViewer.canActivateAR) {
+        modelViewer.activateAR();
+      } else {
+        alert(
+          'AR is not supported on this device or browser! Please try with another device.',
+        );
+      }
+    } catch (e) {
+      console.log('Error: ', e);
     }
   });
 
@@ -261,16 +265,16 @@ if (deleteProductBtn) {
 
 import { updateProduct } from '/updateProduct';
 
-const updateProductForm = document.querySelectorAll('#form-update-product');
+const updateProductForm = document.querySelector('#form-update-product');
 
-// if (updateProductForm)
-//   updateProductForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const name = document.getElementById('name').value;
-//     const category = document.getElementById('category').value;
-//     const description = document.getElementById('description').value;
-//     const price = document.getElementById('price').value;
-//     const quantity = document.getElementById('quantity').value;
-//     const productId = document.getElementById('#submit').dataset.productId;
-//     console.log(productId);
-//   });
+if (updateProductForm)
+  updateProductForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const category = document.getElementById('category').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const quantity = document.getElementById('quantity').value;
+    const productId = document.getElementById('submit').dataset.productId;
+    updateProduct({ name, category, quantity, price, description }, productId);
+  });

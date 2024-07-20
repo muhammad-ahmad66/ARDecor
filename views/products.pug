@@ -170,8 +170,16 @@ block content
                     camera-controls
                     ar
                     ar-modes="scene-viewer webxr quick-look"
-                    environment-image='img/product/product-2.jpg'
                     ) 
+                    button(
+                      slot="ar-button"
+                      id="ar-button"
+                    ) View in your space
+
+                    div(
+                      id="ar-prompt"
+                      slot="ar-prompt"
+                    ) Move your phone to scan the room
                   
                     ul.product__hover
                       //- li

@@ -8,14 +8,16 @@ html
       meta(name='viewport' content='width=device-width, initial-scale=1.0')
       meta(http-equiv='X-UA-Compatible' content='ie=edge')
       title AEDecor | #{title}
+      
       // Google Font
       link(href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap' rel='stylesheet')
       // Css Styles
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       
       //- Model viewer API
-      script(type='module' src='https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js')
-
+      //- script(type='module' src='https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js')
+      script( type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js")
+      
 
       if (page === 'login' || page === 'signup')
         link(rel="stylesheet", href="/css/login.css")

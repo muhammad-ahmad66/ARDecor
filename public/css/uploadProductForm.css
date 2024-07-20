@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #f7f7f7;
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;
@@ -6,6 +6,23 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+} */
+
+html {
+  font-size: 62.5%;
+}
+
+.main-login {
+  background-color: #f3f2ee;
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* overflow: hidden; */
+  margin: 0;
 }
 
 .container {
@@ -113,14 +130,18 @@ input[type='file']::file-selector-button:active {
   background-color: #c12727;
 }
 
+select option {
+  color: #000;
+}
+/* 
 select {
-  appearance: none; /* Remove default arrow */
+  appearance: none; 
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4uY2xzLTEge2ZpbGw6I0FBQUFBQTt9LmNscy0yIHtmaWxsOm5vbmU7fTwvc3R5bGU+CiAgPC9kZWZzPgogIDx0aXRsZT5hcnJvdyBkb3dubjwvdGl0bGU+CiAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTMuNSAyTDEwLjUgNUw3LjUgMiIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgOCw4KSIvPjwvc3ZnPgo=');
   background-repeat: no-repeat;
   background-position: right 0.75em center;
   background-size: 1em;
   padding-right: 2em;
-}
+} */
 
 /* ul {
   list-style-type: none;
@@ -128,8 +149,13 @@ select {
   padding-left: 0;
 } */
 
+.current {
+  color: #c12727;
+}
+
 option,
 li {
+  color: #000;
   cursor: pointer;
 }
 
@@ -146,4 +172,29 @@ li {
   button {
     font-size: 1em;
   }
+}
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 9999;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 1.6rem 15rem;
+  -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+}
+.alert--success {
+  background-color: #20bf6b;
+}
+.alert--error {
+  background-color: #eb4d4b;
 }
