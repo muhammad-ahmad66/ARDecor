@@ -45,13 +45,13 @@ block content
                       .product__cart__item__text
                         h6= product.product_id.name
                         - const formattedPrice = product.product_id.price.toFixed(2)
-                        h5= `$${formattedPrice}`
+                        h5= `PKR ${formattedPrice}`
                     td.quantity__item
                       .quantity
                         .pro-qty-2
                           input(type='number' name='quantity' data-product-id=product.product_id._id min=1 value=`${product.quantity}` id=`quantity-${product.product_id._id}` )
                     - const totalPrice = (formattedPrice * product.quantity).toFixed(2)
-                    td.cart__price= `$${totalPrice}`
+                    td.cart__price= `PKR ${totalPrice}`
                     td.cart__close
                       i.fa.fa-close#delete-cart-btn(data-product-id=`${product.product_id._id}`)
                     td.cart__update
@@ -70,11 +70,8 @@ block content
           .cart__total
             h6 Cart total
             ul
-              //- li
-              //-   | Subtotal 
-              //-   span $ 169.50
               li
                 | Total 
-                span= `$${finalPrice}`
+                span= `PKR ${finalPrice}`
             a.primary-btn#checkout-btn(href='#') Proceed to checkout
   // Shopping Cart Section End

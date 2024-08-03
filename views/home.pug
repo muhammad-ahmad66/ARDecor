@@ -60,7 +60,7 @@ block content
           | Shop now 
           span.arrow_right
       .section-hero__container-right
-        model-viewer#model-viewer(src='/img/chair_kitchen.glb' ar='' ar-modes='scene-viewer quick-look' camera-controls='' touch-action='pan-y' alt='A 3D model of a chair' shadow-intensity='2' auto-rotate='' disable-pan='' style='width: 400px; height: 400px')
+        model-viewer#model-viewer(src='/img/office_chair.glb' ar='' ar-modes='scene-viewer quick-look' camera-controls='' touch-action='pan-y' alt='A 3D model of a chair' shadow-intensity='2' auto-rotate='' disable-pan='' style='width: 400px; height: 400px')
         #error.hide AR is not supported on this device
 
   section.banner.spad
@@ -87,268 +87,6 @@ block content
             .banner__item__text
               h2 Augmented Reality Experience
               a(href='/products') Shop now
-
-  //- section.product.spad
-    .container
-      .row
-        .col-lg-12
-          ul.filter__controls
-            li.active(data-filter='*') Best Sellers
-            li(data-filter='.new-arrivals') New Arrivals
-            li(data-filter='.hot-sales') Hot Sales
-      .row.product__filter
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.new-arrivals
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-22.jpg')
-              span.label New
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Piqu&eacute; Biker Jacket
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $67.24
-              .product__color__select
-                label(for='pc-1')
-                  input#pc-1(type='radio')
-                label.active.black(for='pc-2')
-                  input#pc-2(type='radio')
-                label.grey(for='pc-3')
-                  input#pc-3(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.hot-sales
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-2.jpg')
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Piqu&eacute; Biker Jacket
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $67.24
-              .product__color__select
-                label(for='pc-4')
-                  input#pc-4(type='radio')
-                label.active.black(for='pc-5')
-                  input#pc-5(type='radio')
-                label.grey(for='pc-6')
-                  input#pc-6(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.new-arrivals
-          .product__item.sale
-            .product__item__pic.set-bg(data-setbg='img/product/product-3.jpg')
-              span.label Sale
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Multi-pocket Chest Bag
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star-o
-              h5 $43.48
-              .product__color__select
-                label(for='pc-7')
-                  input#pc-7(type='radio')
-                label.active.black(for='pc-8')
-                  input#pc-8(type='radio')
-                label.grey(for='pc-9')
-                  input#pc-9(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.hot-sales
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-4.jpg')
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Diagonal Textured Cap
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $60.9
-              .product__color__select
-                label(for='pc-10')
-                  input#pc-10(type='radio')
-                label.active.black(for='pc-11')
-                  input#pc-11(type='radio')
-                label.grey(for='pc-12')
-                  input#pc-12(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.new-arrivals
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-5.jpg')
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Lether Backpack
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $31.37
-              .product__color__select
-                label(for='pc-13')
-                  input#pc-13(type='radio')
-                label.active.black(for='pc-14')
-                  input#pc-14(type='radio')
-                label.grey(for='pc-15')
-                  input#pc-15(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.hot-sales
-          .product__item.sale
-            .product__item__pic.set-bg(data-setbg='img/product/product-6.jpg')
-              span.label Sale
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Ankle Boots
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star-o
-              h5 $98.49
-              .product__color__select
-                label(for='pc-16')
-                  input#pc-16(type='radio')
-                label.active.black(for='pc-17')
-                  input#pc-17(type='radio')
-                label.grey(for='pc-18')
-                  input#pc-18(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.new-arrivals
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-7.jpg')
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 T-shirt Contrast Pocket
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $49.66
-              .product__color__select
-                label(for='pc-19')
-                  input#pc-19(type='radio')
-                label.active.black(for='pc-20')
-                  input#pc-20(type='radio')
-                label.grey(for='pc-21')
-                  input#pc-21(type='radio')
-        .col-lg-3.col-md-6.col-sm-6.col-md-6.col-sm-6.mix.hot-sales
-          .product__item
-            .product__item__pic.set-bg(data-setbg='img/product/product-8.jpg')
-              ul.product__hover
-                li
-                  a(href='#')
-                    img(src='img/icon/heart.png' alt='')
-                li
-                  a(href='#')
-                    img(src='img/icon/compare.png' alt='')
-                    span Compare
-                li
-                  a(href='#')
-                    img(src='img/icon/search.png' alt='')
-            .product__item__text
-              h6 Basic Flowing Scarf
-              a.add-cart(href='#') + Add To Cart
-              .rating
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              h5 $26.28
-              .product__color__select
-                label(for='pc-22')
-                  input#pc-22(type='radio')
-                label.active.black(for='pc-23')
-                  input#pc-23(type='radio')
-                label.grey(for='pc-24')
-                  input#pc-24(type='radio')
-
   // Categories Section Begin
   section.categories.spad
     .container
@@ -363,14 +101,14 @@ block content
               |  Accessories
         .col-lg-4
           .categories__hot__deal
-            img(src='img/file.png' alt='')
+            model-viewer#model-viewer(src='/img/sofa1.glb' ar='' ar-modes='scene-viewer quick-look' camera-controls='' touch-action='pan-y' alt='A 3D model of a chair' shadow-intensity='2' auto-rotate='' disable-pan='' style='width: 400px; height: 400px')
             .hot__deal__sticker
               span Sale Of
-              h5 $29.99
+              h5 Rs 34000
         .col-lg-4.offset-lg-1
           .categories__deal__countdown
             span Deal Of The Week
-            h2 Luxury Velvet Sofa Gray
+            h2 Luxury Brown Sofa for Rest
             #countdown.categories__deal__countdown__timer
               .cd-item
                 span 3
@@ -384,7 +122,7 @@ block content
               .cd-item
                 span 18
                 p Seconds
-            a.primary-btn(href='/products') Shop now
+            a.primary-btn(href='/product/669e9f16a4cea0c34c86356e') Shop now
     // Categories Section End
 
 

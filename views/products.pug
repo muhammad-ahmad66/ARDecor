@@ -32,6 +32,8 @@ block content
                       .shop__sidebar__categories
                         ul.nice-scroll
                           li
+                            a(href='#') school chair
+                          li
                             a(href='#') Chairs
                           li
                             a(href='#') Tables
@@ -67,90 +69,36 @@ block content
                       .shop__sidebar__price
                         ul
                           li
-                            a(href='#') $0.00 - $50.00
+                            a(href='#') Rs 0.00 - Rs 50.00
                           li
-                            a(href='#') $50.00 - $100.00
+                            a(href='#') Rs 50.00 - Rs 100.00
                           li
-                            a(href='#') $100.00 - $150.00
+                            a(href='#') Rs 100.00 - Rs 150.00
                           li
-                            a(href='#') $150.00 - $200.00
+                            a(href='#') Rs 150.00 - Rs 200.00
                           li
-                            a(href='#') $200.00 - $250.00
+                            a(href='#') Rs 200.00 - Rs 250.00
                           li
                             a(href='#') 250.00+
-                //- .card
-                  .card-heading
-                    a(data-toggle='collapse' data-target='#collapseFour') Size
-                  #collapseFour.collapse.show(data-parent='#accordionExample')
-                    .card-body
-                      .shop__sidebar__size
-                        label(for='xs')
-                          | xs
-                          input#xs(type='radio')
-                        label(for='sm')
-                          | s
-                          input#sm(type='radio')
-                        label(for='md')
-                          | m
-                          input#md(type='radio')
-                        label(for='xl')
-                          | xl
-                          input#xl(type='radio')
-                        label(for='2xl')
-                          | 2xl
-                          input#2xl(type='radio')
-                        label(for='xxl')
-                          | xxl
-                          input#xxl(type='radio')
-                        label(for='3xl')
-                          | 3xl
-                          input#3xl(type='radio')
-                        label(for='4xl')
-                          | 4xl
-                          input#4xl(type='radio')
-                //- .card
-                  .card-heading
-                    a(data-toggle='collapse' data-target='#collapseFive') Colors
-                  #collapseFive.collapse.show(data-parent='#accordionExample')
-                    .card-body
-                      .shop__sidebar__color
-                        label.c-1(for='sp-1')
-                          input#sp-1(type='radio')
-                        label.c-2(for='sp-2')
-                          input#sp-2(type='radio')
-                        label.c-3(for='sp-3')
-                          input#sp-3(type='radio')
-                        label.c-4(for='sp-4')
-                          input#sp-4(type='radio')
-                        label.c-5(for='sp-5')
-                          input#sp-5(type='radio')
-                        label.c-6(for='sp-6')
-                          input#sp-6(type='radio')
-                        label.c-7(for='sp-7')
-                          input#sp-7(type='radio')
-                        label.c-8(for='sp-8')
-                          input#sp-8(type='radio')
-                        label.c-9(for='sp-9')
-                          input#sp-9(type='radio')
                 .card
                   .card-heading
                     a(data-toggle='collapse' data-target='#collapseSix') Tags
                   #collapseSix.collapse.show(data-parent='#accordionExample')
                     .card-body
                       .shop__sidebar__tags
-                        a(href='#') Product
-                        a(href='#') Bags
-                        a(href='#') Shoes
-                        a(href='#') Fashio
-                        a(href='#') Clothing
-                        a(href='#') Hats
+                        a(href='#') Sofa
+                        a(href='#') Chair
+                        a(href='#') Tables
+                        a(href='#') Paintings
+                        a(href='#') Clocks
+                        a(href='#') Office Chair
                         a(href='#') Accessories
         .col-lg-9
           .shop__product__option
             .row
               .col-lg-6.col-md-6.col-sm-6
                 .shop__product__option__left
-                  p Showing 1&ndash;12 of 126 results
+                  //- p Showing 1&ndash;12 of 126 results
               .col-lg-6.col-md-6.col-sm-6
                 .shop__product__option__right
                   p Sort by Price:
@@ -204,355 +152,10 @@ block content
                       //-   i.fa.fa-star-o
                       //-   i.fa.fa-star-o
                       //-   i.fa.fa-star-o
-                      h5= `$${product.price}`
+                      h5= `PKR ${product.price}`
                       
                     a.btn.btn-view-detail(href=`/product/${product._id}`) View Detail
-                      
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item.sale
-                .product__item__pic.set-bg(data-setbg='img/product/product-3.jpg')
-                  span.label Sale
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Multi-pocket Chest Bag
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                  h5 $43.48
-                  .product__color__select
-                    label(for='pc-7')
-                      input#pc-7(type='radio')
-                    label.active.black(for='pc-8')
-                      input#pc-8(type='radio')
-                    label.grey(for='pc-9')
-                      input#pc-9(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-4.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Diagonal Textured Cap
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $60.9
-                  .product__color__select
-                    label(for='pc-10')
-                      input#pc-10(type='radio')
-                    label.active.black(for='pc-11')
-                      input#pc-11(type='radio')
-                    label.grey(for='pc-12')
-                      input#pc-12(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item.sale
-                .product__item__pic.set-bg(data-setbg='img/product/product-6.jpg')
-                  span.label Sale
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Ankle Boots
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                  h5 $98.49
-                  .product__color__select
-                    label(for='pc-16')
-                      input#pc-16(type='radio')
-                    label.active.black(for='pc-17')
-                      input#pc-17(type='radio')
-                    label.grey(for='pc-18')
-                      input#pc-18(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-7.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 T-shirt Contrast Pocket
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $49.66
-                  .product__color__select
-                    label(for='pc-19')
-                      input#pc-19(type='radio')
-                    label.active.black(for='pc-20')
-                      input#pc-20(type='radio')
-                    label.grey(for='pc-21')
-                      input#pc-21(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-8.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Basic Flowing Scarf
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $26.28
-                  .product__color__select
-                    label(for='pc-22')
-                      input#pc-22(type='radio')
-                    label.active.black(for='pc-23')
-                      input#pc-23(type='radio')
-                    label.grey(for='pc-24')
-                      input#pc-24(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-9.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Piqu&eacute; Biker Jacket
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $67.24
-                  .product__color__select
-                    label(for='pc-25')
-                      input#pc-25(type='radio')
-                    label.active.black(for='pc-26')
-                      input#pc-26(type='radio')
-                    label.grey(for='pc-27')
-                      input#pc-27(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item.sale
-                .product__item__pic.set-bg(data-setbg='img/product/product-10.jpg')
-                  span.label Sale
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Multi-pocket Chest Bag
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                  h5 $43.48
-                  .product__color__select
-                    label(for='pc-28')
-                      input#pc-28(type='radio')
-                    label.active.black(for='pc-29')
-                      input#pc-29(type='radio')
-                    label.grey(for='pc-30')
-                      input#pc-30(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-11.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Diagonal Textured Cap
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $60.9
-                  .product__color__select
-                    label(for='pc-31')
-                      input#pc-31(type='radio')
-                    label.active.black(for='pc-32')
-                      input#pc-32(type='radio')
-                    label.grey(for='pc-33')
-                      input#pc-33(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item.sale
-                .product__item__pic.set-bg(data-setbg='img/product/product-12.jpg')
-                  span.label Sale
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Ankle Boots
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                  h5 $98.49
-                  .product__color__select
-                    label(for='pc-34')
-                      input#pc-34(type='radio')
-                    label.active.black(for='pc-35')
-                      input#pc-35(type='radio')
-                    label.grey(for='pc-36')
-                      input#pc-36(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-13.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 T-shirt Contrast Pocket
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $49.66
-                  .product__color__select
-                    label(for='pc-37')
-                      input#pc-37(type='radio')
-                    label.active.black(for='pc-38')
-                      input#pc-38(type='radio')
-                    label.grey(for='pc-39')
-                      input#pc-39(type='radio')
-            //- .col-lg-4.col-md-6.col-sm-6
-              .product__item
-                .product__item__pic.set-bg(data-setbg='img/product/product-14.jpg')
-                  ul.product__hover
-                    li
-                      a(href='#')
-                        img(src='img/icon/heart.png' alt='')
-                    li
-                      a(href='#')
-                        img(src='img/icon/compare.png' alt='')
-                        span Compare
-                    li
-                      a(href='#')
-                        img(src='img/icon/search.png' alt='')
-                .product__item__text
-                  h6 Basic Flowing Scarf
-                  a.add-cart(href='#') + Add To Cart
-                  .rating
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  h5 $26.28
-                  .product__color__select
-                    label(for='pc-40')
-                      input#pc-40(type='radio')
-                    label.active.black(for='pc-41')
-                      input#pc-41(type='radio')
-                    label.grey(for='pc-42')
-                      input#pc-42(type='radio')
+
           .row
             .col-lg-12
               .product__pagination

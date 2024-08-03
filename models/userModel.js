@@ -1,44 +1,44 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 const userSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please tell us your name!"],
+    required: [true, 'Please tell us your name!'],
   },
   email: {
     type: String,
-    required: [true, "Please provide your email"],
+    required: [true, 'Please provide your email'],
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, "Please provide a valid email"],
+    validate: [validator.isEmail, 'Please provide a valid email'],
   },
   photo: {
     type: String,
-    default: "default.jpg",
+    default: 'default.jpg',
   },
   password: {
     type: String,
-    required: [true, "Please provide your password"],
+    required: [true, 'Please provide your password'],
     minlength: 8,
     select: false,
   },
   passwordConfirm: {
     type: String,
-    required: [true, "Please confirm your password"],
+    required: [true, 'Please confirm your password'],
     validate: {
       validator: function (pasConfirm) {
         return pasConfirm === this.password;
       },
-      message: "Passwords are not the same! Please try again",
+      message: 'Passwords are not the same! Please try again',
     },
   },
 
   role: {
     type: String,
-    enum: ["user", "admin", ""],
-    default: "user",
+    enum: ['user', 'admin', ''],
+    default: 'user',
   },
   active: {
     type: Boolean,
@@ -58,19 +58,19 @@ const userSchema = mongoose.Schema({
     {
       product_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
+        ref: 'Product',
         required: true,
       },
       quantity: { type: Number, required: true },
     },
   ],
-  orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
+  orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
 });
 
-userSchema.pre("save", async function (next) {
+userSchema.pre('save', async function (next) {
   try {
     // Only run if the password field is changed
-    if (!this.isModified("password")) next();
+    if (!this.isModified('password')) next();
 
     // Hash the password with code 12
     this.password = await bcrypt.hash(this.password, 12);
@@ -94,7 +94,7 @@ userSchema.pre(/^find/, function (next) {
 // And 'this' will point to the current document
 userSchema.methods.correctPassword = async function (
   candidatePassword,
-  userPassword
+  userPassword,
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
@@ -107,7 +107,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
     const changedTimestamp = parseInt(
       // parsed into the number with based 10 number
       this.passwordChangedAt.getTime() / 1000, // getTime will convert to timestamp
-      10
+      10,
     );
     return JWTTimestamp < changedTimestamp;
   }
@@ -115,6 +115,6 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   return false; // false means not changed
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
