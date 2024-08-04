@@ -64,6 +64,7 @@ exports.getProducts = async (req, res, next) => {
       title: 'Products',
       page: 'products',
       products,
+      queryString,
     });
   } catch (error) {
     next(error);
@@ -143,5 +144,22 @@ exports.getProductUpdateForm = async function (req, res, next) {
     res.status(500).json({
       message: err.message,
     });
+  }
+};
+
+exports.SearchProducts = async (req, res) => {
+  try {
+    const name = req.params.name.toLowerCase(); // Get the search query from the URL
+    const products = await Product.find({
+      $or: [
+        { name: { $regex: name, $options: 'i' } },
+        { description: { $regex: name, $options: 'i' } },
+      ],
+    });
+
+    // Render the products (or send them as JSON)
+    res.render('products', { products }); // Adjust as needed
+  } catch (error) {
+    res.status(500).send('Error occurred while fetching products');
   }
 };

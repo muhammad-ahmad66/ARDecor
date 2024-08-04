@@ -39,4 +39,10 @@ router.get(
 router.get('/contact', authController.isLoggedIn, viewsController.getContact);
 router.get('/me', authController.protect, viewsController.getAccount);
 
+router.get(
+  '/search-product/:name',
+  authController.protect,
+  viewsController.SearchProducts,
+);
+
 module.exports = router;

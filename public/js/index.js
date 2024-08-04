@@ -361,3 +361,39 @@ if (clearFilterBtn) {
     clearFilterBtn.style.display = 'none'; // Hide button
   }
 }
+
+// Function to handle search and redirect
+export const searchProductByName = async (name) => {
+  try {
+    // Use a timeout to simulate a delay before redirecting
+    window.setTimeout(() => {
+      // Convert the name to lowercase and encode it for the URL
+      name = name.toLowerCase();
+
+      // Redirect to the search-product page with the name included in the URL
+      window.location.href = `/search-product/${encodeURIComponent(name)}`;
+    }, 500); // 500ms delay before redirect
+  } catch (err) {
+    // Handle any errors that occur during the search process
+    // showAlert('error', err.message);
+    console.log(err);
+  }
+};
+
+// Wait for the DOM to load before executing the script
+document.addEventListener('DOMContentLoaded', () => {
+  // Get the search form element
+  const searchForm = document.getElementById('searchForm');
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevent the default form submission
+
+      // Get the search input value
+      const name = document.getElementById('search-product-name').value;
+
+      // Call the function to handle the search
+      searchProductByName(name);
+    });
+  }
+});

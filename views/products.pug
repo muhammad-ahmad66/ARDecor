@@ -28,9 +28,10 @@ block content
         .col-lg-3
           .shop__sidebar
             .shop__sidebar__search
-              form(action='#')
-                input(type='text' placeholder='Search...')
+              form(id='searchForm')
+                input(type='text', id='search-product-name', placeholder='Search ...')
                 button(type='submit')
+
                   span.icon_search
             .shop__sidebar__accordion
               #accordionExample.accordion
@@ -106,60 +107,84 @@ block content
                   //- p Showing 1&ndash;12 of 126 results
               .col-lg-6.col-md-6.col-sm-6
                 .shop__product__option__right
-                  p Sort by Price:
-                  select
-                    option(value='') Low To High
-                    option(value='') $0 - $55
-                    option(value='') $55 - $100
-          .row
-            each product in products
-              .col-lg-4.col-md-6.col-sm-6
-                .product__item
-                  //- .product__item__pic.set-bg(data-setbg='img/product/armchair.glib')
-                  model-viewer#modelViewer.product__item__pic(
-                    src=`/img/products/${product.image}`
-                    alt='A 3D model of a table'
-                    auto-rotate
-                    camera-controls
-                    ar
-                    ar-modes="scene-viewer webxr quick-look"
-                    ) 
-                    button(
-                      slot="ar-button"
-                      id="ar-button"
-                    ) View in your space
+                  - function capitalizeWords(str) {
+                  -   return str.replace(/\b\w/g, function (char) {
+                  -     return char.toUpperCase();
+                  -   });
+                  - }
 
-                    div(
-                      id="ar-prompt"
-                      slot="ar-prompt"
-                    ) Move your phone to scan the room
-                  
-                    ul.product__hover
-                      //- li
-                      //-   a(href='#')
-                      //-     img(src='img/icon/heart.png' alt='')
-                      li
-                        a#ar-button(href='#')
-                          //- img(src='img/icon/compare.png' alt='')
-                          //- i.fa-solid.fa-vr-cardboard.ar-icon
-                          i.fa-brands.fa-unity.ar-icon
-                          span Visualize
-                      //- li
-                      //-   a(href='#')
-                      //-     img(src='img/icon/search.png' alt='')
-                  div.product__item-detail-box
-                    .product__item__text
-                      h6= product.name
-                      a.add-cart(href='#' id="addToCartButton" data-product-id=`${product._id}` data-quantity="1") + Add To Cart
-                      //- .rating
-                      //-   i.fa.fa-star-o
-                      //-   i.fa.fa-star-o
-                      //-   i.fa.fa-star-o
-                      //-   i.fa.fa-star-o
-                      //-   i.fa.fa-star-o
-                      h5= `PKR ${product.price}`
-                      
-                    a.btn.btn-view-detail(href=`/product/${product._id}`) View Detail
+                  - function formatPriceRange(val) {
+                  -   const gteMatch = val.match(/gte=(\d+)/);
+                  -   const lteMatch = val.match(/lte=(\d+)/);
+                  -   const gte = gteMatch ? gteMatch[1] : '';
+                  -   const lte = lteMatch ? lteMatch[1] : '';
+                  -   return `[${gte} - ${lte}]`;
+                  - }
+
+                  if queryString && typeof queryString === 'object' && Object.keys(queryString).length > 0
+                    p Your current filter settings are: 
+                      each val, key in queryString
+                        if key === 'price'
+                          | #{capitalizeWords(key)}: #{formatPriceRange(val)}
+                        else
+                          | #{capitalizeWords(key)}: #{capitalizeWords(val)}
+                        br
+
+
+
+          .row
+            if products 
+              each product in products
+                .col-lg-4.col-md-6.col-sm-6
+                  .product__item
+                    //- .product__item__pic.set-bg(data-setbg='img/product/armchair.glib')
+                    model-viewer#modelViewer.product__item__pic(
+                      src=`/img/products/${product.image}`
+                      alt='A 3D model of a table'
+                      auto-rotate
+                      camera-controls
+                      ar
+                      ar-modes="scene-viewer webxr quick-look"
+                      ) 
+                      button(
+                        slot="ar-button"
+                        id="ar-button"
+                      ) View in your space
+
+                      div(
+                        id="ar-prompt"
+                        slot="ar-prompt"
+                      ) Move your phone to scan the room
+                    
+                      ul.product__hover
+                        //- li
+                        //-   a(href='#')
+                        //-     img(src='img/icon/heart.png' alt='')
+                        li
+                          a#ar-button(href='#')
+                            //- img(src='img/icon/compare.png' alt='')
+                            //- i.fa-solid.fa-vr-cardboard.ar-icon
+                            i.fa-brands.fa-unity.ar-icon
+                            span Visualize
+                        //- li
+                        //-   a(href='#')
+                        //-     img(src='img/icon/search.png' alt='')
+                    div.product__item-detail-box
+                      .product__item__text
+                        h6= product.name
+                        a.add-cart(href='#' id="addToCartButton" data-product-id=`${product._id}` data-quantity="1") + Add To Cart
+                        //- .rating
+                        //-   i.fa.fa-star-o
+                        //-   i.fa.fa-star-o
+                        //-   i.fa.fa-star-o
+                        //-   i.fa.fa-star-o
+                        //-   i.fa.fa-star-o
+                        h5= `PKR ${product.price}`
+                        
+                      a.btn.btn-view-detail(href=`/product/${product._id}`) View Detail
+
+              else 
+                p#no-product-text There is no product for your current Filter Setting.      
 
           //- .row
           //-   .col-lg-12
