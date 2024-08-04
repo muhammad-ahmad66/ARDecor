@@ -84,7 +84,11 @@ exports.createProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllProducts = catchAsync(async (req, res) => {
-  const products = await Product.find();
+  const queryString = req.query;
+  const queryObj = { ...queryString };
+
+  const products = await Product.find(queryObj);
+
   res.status(200).json({
     status: 'success',
     result: products.length,

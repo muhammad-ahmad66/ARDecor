@@ -137,3 +137,18 @@
   text-align: center;
   display: inline-block;
 }
+
+#btn-clear-filter {
+  display: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #444;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#btn-clear-filter:hover {
+  background-color: #333;
+}

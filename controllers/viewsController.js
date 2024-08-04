@@ -34,13 +34,40 @@ exports.getUploadNewProduct = (req, res, next) => {
 };
 
 exports.getProducts = async (req, res, next) => {
-  const products = await Product.find();
+  const queryString = req.query;
+  const queryObj = { ...queryString };
 
-  res.status(200).render('products', {
-    title: 'Products',
-    page: 'products',
-    products,
-  });
+  const { price } = req.query;
+
+  // Check if a price filter is present
+  if (price) {
+    const priceParts = price.split('&');
+    const minPrice = priceParts
+      .find((part) => part.startsWith('gte'))
+      .split('=')[1];
+    const maxPrice = priceParts
+      .find((part) => part.startsWith('lte'))
+      .split('=')[1];
+
+    if (minPrice && maxPrice) {
+      queryObj.price = {
+        $gte: Number(minPrice),
+        $lte: Number(maxPrice),
+      };
+    }
+  }
+
+  try {
+    const products = await Product.find(queryObj);
+
+    res.status(200).render('products', {
+      title: 'Products',
+      page: 'products',
+      products,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 exports.getProductDetails = catchAsync(async (req, res, next) => {

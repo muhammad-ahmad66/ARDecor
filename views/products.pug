@@ -1,5 +1,15 @@
 extends base 
 
+mixin categoryItem(category)
+  - const categoryUC = category.toUpperCase();
+  li.select-category(data-category=`${category}`)
+    a(href='#')= categoryUC
+
+mixin priceRange(min, max)
+  li.price-range(data-min=min, data-max=max)
+    a(href='#')= `Rs ${min} - Rs ${max||'++'}`
+    //- a(href='#') Rs 0.00 - Rs 50.00
+
 block content
   section.breadcrumb-option
     .container
@@ -25,42 +35,30 @@ block content
             .shop__sidebar__accordion
               #accordionExample.accordion
                 .card
+                  a#btn-clear-filter Clear Filter
+                .card
                   .card-heading
                     a(data-toggle='collapse' data-target='#collapseOne') Categories
                   #collapseOne.collapse.show(data-parent='#accordionExample')
                     .card-body
                       .shop__sidebar__categories
+                        // Extract unique categories from the products array
+                        - const uniqueCategories = [...new Set(products.map(product => product.category))];
+
                         ul.nice-scroll
-                          li
-                            a(href='#') school chair
-                          li
-                            a(href='#') Chairs
-                          li
-                            a(href='#') Tables
-                          li
-                            a(href='#') Decor Pieces
-                          li
-                            a(href='#') Sofa
-                          li
-                            a(href='#') interior
-                          li
-                            a(href='#') bookcase
+                          // Use the mixin to create the list
+                          //- each category in uniqueCategories
+                            //- +categoryItem(category)
+                          +categoryItem('chairs')
+                          +categoryItem('sofa')
+                          +categoryItem('tables')
+
+                        //- ul.nice-scroll
+                        //-   li
+                        //-     a(href='#') chair
+                        //-   li
+                        //-     a(href='#') Chairs
                           
-                //- .card
-                  .card-heading
-                    a(data-toggle='collapse' data-target='#collapseTwo') Branding
-                  #collapseTwo.collapse.show(data-parent='#accordionExample')
-                    .card-body
-                      .shop__sidebar__brand
-                        ul
-                          li
-                            a(href='#') Louis Vuitton
-                          li
-                            a(href='#') Chanel
-                          li
-                            a(href='#') Hermes
-                          li
-                            a(href='#') Gucci
                 .card
                   .card-heading
                     a(data-toggle='collapse' data-target='#collapseThree') Filter Price
@@ -68,31 +66,38 @@ block content
                     .card-body
                       .shop__sidebar__price
                         ul
-                          li
-                            a(href='#') Rs 0.00 - Rs 50.00
-                          li
-                            a(href='#') Rs 50.00 - Rs 100.00
-                          li
-                            a(href='#') Rs 100.00 - Rs 150.00
-                          li
-                            a(href='#') Rs 150.00 - Rs 200.00
-                          li
-                            a(href='#') Rs 200.00 - Rs 250.00
-                          li
-                            a(href='#') 250.00+
-                .card
-                  .card-heading
-                    a(data-toggle='collapse' data-target='#collapseSix') Tags
-                  #collapseSix.collapse.show(data-parent='#accordionExample')
-                    .card-body
-                      .shop__sidebar__tags
-                        a(href='#') Sofa
-                        a(href='#') Chair
-                        a(href='#') Tables
-                        a(href='#') Paintings
-                        a(href='#') Clocks
-                        a(href='#') Office Chair
-                        a(href='#') Accessories
+                          +priceRange(0, 5000)
+                          +priceRange(5000, 10000)
+                          +priceRange(10000, 20000)
+                          +priceRange(20000, 30000)
+                          +priceRange(30000, 50000)
+                          +priceRange(50000, 100000)
+                          
+                          //- li
+                          //-   a(href='#') Rs 0.00 - Rs 50.00
+                          //- li
+                          //-   a(href='#') Rs 50.00 - Rs 100.00
+                          //- li
+                          //-   a(href='#') Rs 100.00 - Rs 150.00
+                          //- li
+                          //-   a(href='#') Rs 150.00 - Rs 200.00
+                          //- li
+                          //-   a(href='#') Rs 200.00 - Rs 250.00
+                          //- li
+                          //-   a(href='#') 250.00+
+                //- .card
+                //-   .card-heading
+                //-     a(data-toggle='collapse' data-target='#collapseSix') Tags
+                //-   #collapseSix.collapse.show(data-parent='#accordionExample')
+                //-     .card-body
+                //-       .shop__sidebar__tags
+                //-         a(href='#') Sofa
+                //-         a(href='#') Chair
+                //-         a(href='#') Tables
+                //-         a(href='#') Paintings
+                //-         a(href='#') Clocks
+                //-         a(href='#') Office Chair
+                //-         a(href='#') Accessories
         .col-lg-9
           .shop__product__option
             .row
@@ -156,14 +161,14 @@ block content
                       
                     a.btn.btn-view-detail(href=`/product/${product._id}`) View Detail
 
-          .row
-            .col-lg-12
-              .product__pagination
-                a.active(href='#') 1
-                a(href='#') 2
-                a(href='#') 3
-                span ...
-                a(href='#') 21
+          //- .row
+          //-   .col-lg-12
+          //-     .product__pagination
+          //-       a.active(href='#') 1
+          //-       a(href='#') 2
+          //-       a(href='#') 3
+          //-       span ...
+          //-       a(href='#') 21
   // Shop Section End
 
 

@@ -278,3 +278,86 @@ if (updateProductForm)
     const productId = document.getElementById('submit').dataset.productId;
     updateProduct({ name, category, quantity, price, description }, productId);
   });
+
+// Helper function to get current URL parameters
+const getQueryParams = () => {
+  const queryParams = new URLSearchParams(window.location.search);
+  return {
+    category: queryParams.get('category') || '',
+    price: queryParams.get('price') || '',
+  };
+};
+
+// Helper function to update URL with new filters
+const updateURLWithFilters = (category, price) => {
+  const queryParams = new URLSearchParams();
+
+  if (category) {
+    queryParams.set('category', category);
+  }
+
+  if (price) {
+    queryParams.set('price', price);
+  }
+
+  const newURL = `/products?${queryParams.toString()}`;
+  window.location.href = newURL;
+};
+
+// Category filter
+const categoryBtn = document.querySelectorAll('.select-category');
+
+if (categoryBtn) {
+  categoryBtn.forEach((button) =>
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const category = this.dataset.category;
+
+      const { price } = getQueryParams();
+      updateURLWithFilters(category, price);
+    }),
+  );
+}
+
+// Price range filter
+const priceRangeBtn = document.querySelectorAll('.price-range');
+
+if (priceRangeBtn) {
+  priceRangeBtn.forEach((button) =>
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const minPrice = parseInt(this.dataset.min);
+      const maxPrice = parseInt(this.dataset.max);
+
+      // Format price range as a string to be URL-encoded
+      const priceFilter = `gte=${minPrice}&lte=${maxPrice}`;
+
+      const { category } = getQueryParams();
+      updateURLWithFilters(category, priceFilter);
+    }),
+  );
+}
+
+const clearFilterBtn = document.getElementById('btn-clear-filter');
+
+if (clearFilterBtn) {
+  clearFilterBtn.addEventListener('click', () => {
+    updateURLWithFilters('', '');
+  });
+}
+
+const hasQueryParams = () => {
+  return window.location.search.length > 0;
+};
+
+// Get the button element
+// const clearFilterBtn = document.getElementById('btn-clear-filter');
+
+// Show or hide the button based on the presence of query parameters
+if (clearFilterBtn) {
+  if (hasQueryParams()) {
+    clearFilterBtn.style.display = 'block'; // Show button
+  } else {
+    clearFilterBtn.style.display = 'none'; // Hide button
+  }
+}
