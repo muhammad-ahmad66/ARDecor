@@ -1,11 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
   name: { type: String, required: true },
   category: {
     type: String,
     required: true,
-    enum: ["chairs", "tables", "sofa", "bookcase", "interior"], // Restrict category to specific values
+    enum: [
+      'chairs',
+      'tables',
+      'computer-desk',
+      'sofa',
+      'study-table',
+      'cabinet',
+    ], // Restrict category to specific values
   },
   description: { type: String, required: true },
   price: { type: Number, required: true },
@@ -13,6 +20,6 @@ const productSchema = new mongoose.Schema({
   image: { type: String, required: true },
 });
 
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;

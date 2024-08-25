@@ -37,6 +37,7 @@ router.get(
 
 // STATIC PAGES
 router.get('/contact', authController.isLoggedIn, viewsController.getContact);
+router.get('/about', authController.isLoggedIn, viewsController.getAbout);
 router.get('/me', authController.protect, viewsController.getAccount);
 
 router.get(

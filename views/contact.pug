@@ -1,6 +1,12 @@
 extends base 
 
+block append head
+  link(rel="stylesheet", href="/css/about.css")
+
 block content
+  header.header-about 
+      .container
+        h1 Contact Us
   .map
     iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13361.850889435444!2d73.7450184!3d33.149477!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391fec085ec688ef%3A0xd988766d3ccdd31c!2sMirpur%20University%20of%20Science%20and%20Technology%20(MUST)!5e0!3m2!1sen!2s!4v1716133015043!5m2!1sen!2s' width='600' height='450' style='border: 0' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
 

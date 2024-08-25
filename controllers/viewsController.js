@@ -120,6 +120,13 @@ exports.getContact = (req, res, next) => {
   });
 };
 
+exports.getAbout = (req, res, next) => {
+  res.status(200).render('about', {
+    title: 'About Us',
+    page: 'about',
+  });
+};
+
 exports.getAllProducts = async (req, res, next) => {
   const products = await Product.find();
 
